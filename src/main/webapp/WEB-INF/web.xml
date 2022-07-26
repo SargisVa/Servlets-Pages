@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <servlet>
+        <servlet-name>home</servlet-name>
+        <servlet-class>com.onlineshop.servlets.HomeServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>signUp</servlet-name>
+        <servlet-class>com.onlineshop.servlets.SignUpServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>userHome</servlet-name>
+        <servlet-class>com.onlineshop.servlets.UserHomeServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>logIn</servlet-name>
+        <servlet-class>com.onlineshop.servlets.LogInServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>addPost</servlet-name>
+        <servlet-class>com.onlineshop.servlets.AddPostServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>searchByUsername</servlet-name>
+        <servlet-class>com.onlineshop.servlets.SearchByUsernameServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>editPost</servlet-name>
+        <servlet-class>com.onlineshop.servlets.EditPostServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>draft</servlet-name>
+        <servlet-class>com.onlineshop.servlets.DraftServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>draft</servlet-name>
+        <url-pattern>/draft</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>home</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>signUp</servlet-name>
+        <url-pattern>/signUp</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>userHome</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>logIn</servlet-name>
+        <url-pattern>/logIn</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>addPost</servlet-name>
+        <url-pattern>/addPost</url-pattern>
+    </servlet-mapping>
+    
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>com.onlineshop.filters.AuthenticationFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>authorizationFilter</filter-name>
+        <filter-class>com.onlineshop.filters.AuthorizationFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>themeFilter</filter-name>
+        <filter-class>com.onlineshop.filters.ThemeFilter</filter-class>
+    </filter>
+    
+    <servlet-mapping>
+        <servlet-name>searchByUsername</servlet-name>
+        <url-pattern>/searchByUsername</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>editPost</servlet-name>
+        <url-pattern>/editPost</url-pattern>
+    </servlet-mapping>
+
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/addPost</url-pattern>
+        <url-pattern>/user</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>authorizationFilter</filter-name>
+        <url-pattern>/logIn</url-pattern>
+        <url-pattern>/signUp</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>themeFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+</web-app>
